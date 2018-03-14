@@ -39,7 +39,7 @@ def run_test_suite(args):
         USE_TZ=True,
         DATABASES={
             "default": {
-                "ENGINE": "django.db.backends.postgresql_psycopg2",
+                "ENGINE": "django.db.backends.sqlite3",
                 "NAME": "djbraintree",
                 "USER": "",
                 "PASSWORD": "",

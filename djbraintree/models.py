@@ -22,8 +22,9 @@ class Customer(BraintreeCustomer):
     that we might not have a user object as the Payer Model.
     """
     entity = models.OneToOneField(
-        getattr(settings, 'DJBRAINTREE_PAYER_MODEL', settings.AUTH_USER_MODEL),
-        null=True)
+        getattr(settings, 'DJBRAINTREE_PAYER_MODEL', settings.AUTH_USER_MODEL,),
+        null=True,
+        on_delete=models.PROTECT)
 
     # objects = CustomerManager()
     def str_parts(self):
@@ -95,7 +96,8 @@ class Customer(BraintreeCustomer):
 class Transaction(BraintreeTransaction):
     customer = models.ForeignKey(Customer,
                                  related_name="transactions",
-                                 null=True)
+                                 null=True,
+                                 on_delete=models.PROTECT)
 
     @classmethod
     def sync_from_braintree_object(cls, braintree_object):

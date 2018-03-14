@@ -508,7 +508,7 @@ class BraintreeTransaction(BraintreeObject):
             "processor_settlement_response_code": obj.processor_settlement_response_code or '',
             "processor_settlement_response_text": obj.processor_settlement_response_text or '',
             "purchase_order_number": obj.purchase_order_number or '',
-            "recurring": obj.recurring or '',
+            "recurring": obj.recurring or False,
             "refund_ids": obj.refund_ids or '',
             "refunded_transaction_id": obj.refunded_transaction_id or '',
 
